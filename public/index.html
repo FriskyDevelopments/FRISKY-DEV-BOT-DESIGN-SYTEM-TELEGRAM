@@ -1,497 +1,728 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="color-scheme" content="dark" />
-  <meta name="theme-color" content="#050505" />
-  <meta name="description" content="Frisky Design System — Telegram Bot UI. Deep Tech / Cyber design tokens, components, and brand guidelines for the Frisky ecosystem." />
-  <title>Frisky Design System · Telegram Bot UI</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/css/tokens.css" />
-  <link rel="stylesheet" href="/css/styles.css" />
-  <script>
-    !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]);t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+" (stub)"},o="init bs ws ge fs capture De calculateEventProperties $s register unregister getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey getNextSurveyStep identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
-    posthog.init("phc_nekWJgkvZ4Kcik99vMpqruhA5Bi9Cwue3N5TREesD4WD", {
-      api_host: "https://us.i.posthog.com",
-      person_profiles: "identified_only",
-      capture_pageview: true,
-      capture_pageleave: true
-    });
-  </script>
-</head>
-<body>
-  <div class="app">
-    <!-- ─── Navigation ─── -->
-    <nav class="nav">
-      <div class="nav__inner">
-        <div class="nav__brand">
-          <span class="nav__logo">⬡</span>
-          <span class="nav__title">FRISKY</span>
-          <span class="nav__subtitle">DESIGN SYSTEM</span>
-        </div>
-        <div class="nav__links">
-          <a href="#tokens" class="nav__link">Tokens</a>
-          <a href="#components" class="nav__link">Components</a>
-          <a href="#telegram" class="nav__link">Telegram</a>
-          <a href="#usage" class="nav__link">Usage</a>
-        </div>
-      </div>
-    </nav>
-
-    <!-- ─── Hero ─── -->
-    <header class="hero">
-      <div class="hero__bg"></div>
-      <div class="hero__content">
-        <span class="hero__eyebrow technical">v1.0.0 · Deep Tech / Cyber</span>
-        <h1 class="hero__title">
-          Telegram Bot<br />
-          <span class="gradient-text">Design System</span>
-        </h1>
-        <p class="hero__subtitle">
-          Canonical UI tokens, components, and brand guidelines for the<br />
-          <strong>Frisky Developments</strong> ecosystem — bots, mini-apps & portals.
-        </p>
-        <div class="hero__actions">
-          <a href="#tokens" class="btn btn--primary">Explore Tokens</a>
-          <a href="https://github.com/FriskyDevelopments/FRISKY-DEV-BOT-DESIGN-SYTEM-TELEGRAM" class="btn btn--secondary" target="_blank" rel="noopener">GitHub →</a>
-        </div>
-      </div>
-      <div class="hero__terminal">
-        <div class="terminal">
-          <div class="terminal__header">
-            <span class="terminal__dot terminal__dot--red"></span>
-            <span class="terminal__dot terminal__dot--yellow"></span>
-            <span class="terminal__dot terminal__dot--green"></span>
-            <span class="technical">design-system.initialize</span>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#050505" />
+    <meta
+      name="description"
+      content="Frisky Design System — Telegram Bot UI. Deep Tech / Cyber design tokens, components, and brand guidelines for the Frisky ecosystem."
+    />
+    <title>Frisky Design System · Telegram Bot UI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/tokens.css" />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <script>
+      !(function (t, e) {
+        var o, n, p, r;
+        e.__SV ||
+          ((window.posthog = e),
+          (e._i = []),
+          (e.init = function (i, s, a) {
+            function g(t, e) {
+              var o = e.split(".");
+              2 == o.length && ((t = t[o[0]]), (e = o[1]));
+              t[e] = function () {
+                t.push([e].concat(Array.prototype.slice.call(arguments, 0)));
+              };
+            }
+            (((p = t.createElement("script")).type = "text/javascript"),
+              (p.crossOrigin = "anonymous"),
+              (p.async = !0),
+              (p.src =
+                s.api_host.replace(".i.posthog.com", "-assets.i.posthog.com") +
+                "/static/array.js"),
+              (r = t.getElementsByTagName("script")[0]).parentNode.insertBefore(
+                p,
+                r,
+              ));
+            var u = e;
+            for (
+              void 0 !== a ? (u = e[a] = []) : (a = "posthog"),
+                u.people = u.people || [],
+                u.toString = function (t) {
+                  var e = "posthog";
+                  return (
+                    "posthog" !== a && (e += "." + a),
+                    t || (e += " (stub)"),
+                    e
+                  );
+                },
+                u.people.toString = function () {
+                  return u.toString(1) + " (stub)";
+                },
+                o =
+                  "init bs ws ge fs capture De calculateEventProperties $s register unregister getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey getNextSurveyStep identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug".split(
+                    " ",
+                  ),
+                n = 0;
+              n < o.length;
+              n++
+            )
+              g(u, o[n]);
+            e._i.push([i, s, a]);
+          }),
+          (e.__SV = 1));
+      })(document, window.posthog || []);
+      posthog.init("phc_nekWJgkvZ4Kcik99vMpqruhA5Bi9Cwue3N5TREesD4WD", {
+        api_host: "https://us.i.posthog.com",
+        person_profiles: "identified_only",
+        capture_pageview: true,
+        capture_pageleave: true,
+      });
+    </script>
+  </head>
+  <body>
+    <div class="app">
+      <!-- ─── Navigation ─── -->
+      <nav class="nav">
+        <div class="nav__inner">
+          <div class="nav__brand">
+            <span class="nav__logo">⬡</span>
+            <span class="nav__title">FRISKY</span>
+            <span class="nav__subtitle">DESIGN SYSTEM</span>
           </div>
-          <div class="terminal__body">
-            <span class="terminal__line"><span class="terminal__prompt">❯</span> Frisky Design System loaded</span>
-            <span class="terminal__line"><span class="terminal__prompt">❯</span> Tokens: <span class="terminal__accent">47</span> design tokens</span>
-            <span class="terminal__line"><span class="terminal__prompt">❯</span> Components: <span class="terminal__accent">12</span> primitives</span>
-            <span class="terminal__line"><span class="terminal__prompt">❯</span> Telegram API: <span class="terminal__accent">inline</span> ready</span>
-            <span class="terminal__line terminal__blink"><span class="terminal__prompt">❯</span> Listening on channel...</span>
-          </div>
-        </div>
-      </div>
-    </header>
-
-    <!-- ─── Palette / Tokens ─── -->
-    <section id="tokens" class="section">
-      <div class="section__header">
-        <span class="technical">section 01</span>
-        <h2>Design Tokens</h2>
-        <p>Every color, type scale, and spacing unit — consumable across all Frisky repos.</p>
-      </div>
-
-      <div class="token-grid">
-        <div class="token-card">
-          <h3>Background & Surface</h3>
-          <div class="swatches">
-            <div class="swatch">
-              <div class="swatch__preview" style="background:#050505;border:1px solid rgba(255,255,255,0.1)"></div>
-              <div class="swatch__info">
-                <span class="swatch__name">--fds-bg</span>
-                <span class="swatch__value">#050505</span>
-              </div>
-            </div>
-            <div class="swatch">
-              <div class="swatch__preview" style="background:rgba(255,255,255,0.05)"></div>
-              <div class="swatch__info">
-                <span class="swatch__name">--fds-bg-glass</span>
-                <span class="swatch__value">rgba(255,255,255,0.05)</span>
-              </div>
-            </div>
-            <div class="swatch">
-              <div class="swatch__preview" style="background:rgba(0,0,0,0.4)"></div>
-              <div class="swatch__info">
-                <span class="swatch__name">--fds-bg-glass-dark</span>
-                <span class="swatch__value">rgba(0,0,0,0.4)</span>
-              </div>
-            </div>
+          <div class="nav__links">
+            <a href="#tokens" class="nav__link">Tokens</a>
+            <a href="#components" class="nav__link">Components</a>
+            <a href="#telegram" class="nav__link">Telegram</a>
+            <a href="#usage" class="nav__link">Usage</a>
           </div>
         </div>
+      </nav>
 
-        <div class="token-card">
-          <h3>Text</h3>
-          <div class="swatches">
-            <div class="swatch">
-              <div class="swatch__preview" style="background:#ffffff"></div>
-              <div class="swatch__info">
-                <span class="swatch__name">--fds-text-primary</span>
-                <span class="swatch__value">#ffffff</span>
-              </div>
-            </div>
-            <div class="swatch">
-              <div class="swatch__preview" style="background:#cbd5e1"></div>
-              <div class="swatch__info">
-                <span class="swatch__name">--fds-text-body</span>
-                <span class="swatch__value">#cbd5e1</span>
-              </div>
-            </div>
-            <div class="swatch">
-              <div class="swatch__preview" style="background:#34d399"></div>
-              <div class="swatch__info">
-                <span class="swatch__name">--fds-text-technical</span>
-                <span class="swatch__value">#34d399</span>
-              </div>
-            </div>
+      <!-- ─── Hero ─── -->
+      <header class="hero">
+        <div class="hero__bg"></div>
+        <div class="hero__content">
+          <span class="hero__eyebrow technical"
+            >v1.0.0 · Deep Tech / Cyber</span
+          >
+          <h1 class="hero__title">
+            Telegram Bot<br />
+            <span class="gradient-text">Design System</span>
+          </h1>
+          <p class="hero__subtitle">
+            Canonical UI tokens, components, and brand guidelines for the<br />
+            <strong>Frisky Developments</strong> ecosystem — bots, mini-apps &
+            portals.
+          </p>
+          <div class="hero__actions">
+            <a href="#tokens" class="btn btn--primary">Explore Tokens</a>
+            <a
+              href="https://github.com/FriskyDevelopments/FRISKY-DEV-BOT-DESIGN-SYTEM-TELEGRAM"
+              class="btn btn--secondary"
+              target="_blank"
+              rel="noopener"
+              >GitHub →</a
+            >
           </div>
         </div>
-
-        <div class="token-card">
-          <h3>Accent Colors</h3>
-          <div class="swatches">
-            <div class="swatch">
-              <div class="swatch__preview" style="background:linear-gradient(135deg,#c084fc,#34d399)"></div>
-              <div class="swatch__info">
-                <span class="swatch__name">Accent Gradient</span>
-                <span class="swatch__value">#c084fc → #34d399</span>
-              </div>
+        <div class="hero__terminal">
+          <div class="terminal">
+            <div class="terminal__header">
+              <span class="terminal__dot terminal__dot--red"></span>
+              <span class="terminal__dot terminal__dot--yellow"></span>
+              <span class="terminal__dot terminal__dot--green"></span>
+              <span class="technical">design-system.initialize</span>
             </div>
-            <div class="swatch">
-              <div class="swatch__preview" style="background:#c084fc"></div>
-              <div class="swatch__info">
-                <span class="swatch__name">Purple</span>
-                <span class="swatch__value">#c084fc</span>
-              </div>
-            </div>
-            <div class="swatch">
-              <div class="swatch__preview" style="background:#34d399"></div>
-              <div class="swatch__info">
-                <span class="swatch__name">Emerald</span>
-                <span class="swatch__value">#34d399</span>
-              </div>
+            <div class="terminal__body">
+              <span class="terminal__line"
+                ><span class="terminal__prompt">❯</span> Frisky Design System
+                loaded</span
+              >
+              <span class="terminal__line"
+                ><span class="terminal__prompt">❯</span> Tokens:
+                <span class="terminal__accent">47</span> design tokens</span
+              >
+              <span class="terminal__line"
+                ><span class="terminal__prompt">❯</span> Components:
+                <span class="terminal__accent">12</span> primitives</span
+              >
+              <span class="terminal__line"
+                ><span class="terminal__prompt">❯</span> Telegram API:
+                <span class="terminal__accent">inline</span> ready</span
+              >
+              <span class="terminal__line terminal__blink"
+                ><span class="terminal__prompt">❯</span> Listening on
+                channel...</span
+              >
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </header>
 
-    <!-- ─── Components ─── -->
-    <section id="components" class="section">
-      <div class="section__header">
-        <span class="technical">section 02</span>
-        <h2>Components</h2>
-        <p>Reusable UI primitives for Telegram bots, mini-apps, and web portals.</p>
-      </div>
-
-      <div class="component-showcase">
-        <!-- Buttons -->
-        <div class="component-card">
-          <h3>Buttons</h3>
-          <div class="component-demo">
-            <button class="btn btn--primary">Primary Action</button>
-            <button class="btn btn--secondary">Secondary</button>
-            <button class="btn btn--ghost">Ghost</button>
-          </div>
-          <div class="component-code">
-            <pre><span class="technical">Button primaries use the accent gradient + premium glow</span></pre>
-          </div>
+      <!-- ─── Palette / Tokens ─── -->
+      <section id="tokens" class="section">
+        <div class="section__header">
+          <span class="technical">section 01</span>
+          <h2>Design Tokens</h2>
+          <p>
+            Every color, type scale, and spacing unit — consumable across all
+            Frisky repos.
+          </p>
         </div>
 
-        <!-- Badges -->
-        <div class="component-card">
-          <h3>Status Badges</h3>
-          <div class="component-demo">
-            <span class="badge badge--success">● Online</span>
-            <span class="badge badge--warning">● Degraded</span>
-            <span class="badge badge--error">● Offline</span>
-            <span class="badge badge--info">● AI Active</span>
-          </div>
-        </div>
-
-        <!-- Glass Card -->
-        <div class="component-card">
-          <h3>Glass Card</h3>
-          <div class="component-demo">
-            <div class="demo-card">
-              <div class="demo-card__header">
-                <span class="technical">connection.status</span>
-                <span class="badge badge--success">● Live</span>
-              </div>
-              <div class="demo-card__body">
-                <div class="demo-card__row">
-                  <span class="demo-card__label technical">latency</span>
-                  <span class="demo-card__value mono">42ms</span>
+        <div class="token-grid">
+          <div class="token-card">
+            <h3>Background & Surface</h3>
+            <div class="swatches">
+              <div class="swatch">
+                <div
+                  class="swatch__preview"
+                  style="
+                    background: #050505;
+                    border: 1px solid rgba(255, 255, 255, 0.1);
+                  "
+                ></div>
+                <div class="swatch__info">
+                  <span class="swatch__name">--fds-bg</span>
+                  <span class="swatch__value">#050505</span>
                 </div>
-                <div class="demo-card__row">
-                  <span class="demo-card__label technical">node</span>
-                  <span class="demo-card__value mono">sfo3-01</span>
+              </div>
+              <div class="swatch">
+                <div
+                  class="swatch__preview"
+                  style="background: rgba(255, 255, 255, 0.05)"
+                ></div>
+                <div class="swatch__info">
+                  <span class="swatch__name">--fds-bg-glass</span>
+                  <span class="swatch__value">rgba(255,255,255,0.05)</span>
                 </div>
-                <div class="demo-card__row">
-                  <span class="demo-card__label technical">status</span>
-                  <span class="demo-card__value">Operational</span>
+              </div>
+              <div class="swatch">
+                <div
+                  class="swatch__preview"
+                  style="background: rgba(0, 0, 0, 0.4)"
+                ></div>
+                <div class="swatch__info">
+                  <span class="swatch__name">--fds-bg-glass-dark</span>
+                  <span class="swatch__value">rgba(0,0,0,0.4)</span>
                 </div>
               </div>
             </div>
           </div>
+
+          <div class="token-card">
+            <h3>Text</h3>
+            <div class="swatches">
+              <div class="swatch">
+                <div class="swatch__preview" style="background: #ffffff"></div>
+                <div class="swatch__info">
+                  <span class="swatch__name">--fds-text-primary</span>
+                  <span class="swatch__value">#ffffff</span>
+                </div>
+              </div>
+              <div class="swatch">
+                <div class="swatch__preview" style="background: #cbd5e1"></div>
+                <div class="swatch__info">
+                  <span class="swatch__name">--fds-text-body</span>
+                  <span class="swatch__value">#cbd5e1</span>
+                </div>
+              </div>
+              <div class="swatch">
+                <div class="swatch__preview" style="background: #34d399"></div>
+                <div class="swatch__info">
+                  <span class="swatch__name">--fds-text-technical</span>
+                  <span class="swatch__value">#34d399</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="token-card">
+            <h3>Accent Colors</h3>
+            <div class="swatches">
+              <div class="swatch">
+                <div
+                  class="swatch__preview"
+                  style="background: linear-gradient(135deg, #c084fc, #34d399)"
+                ></div>
+                <div class="swatch__info">
+                  <span class="swatch__name">Accent Gradient</span>
+                  <span class="swatch__value">#c084fc → #34d399</span>
+                </div>
+              </div>
+              <div class="swatch">
+                <div class="swatch__preview" style="background: #c084fc"></div>
+                <div class="swatch__info">
+                  <span class="swatch__name">Purple</span>
+                  <span class="swatch__value">#c084fc</span>
+                </div>
+              </div>
+              <div class="swatch">
+                <div class="swatch__preview" style="background: #34d399"></div>
+                <div class="swatch__info">
+                  <span class="swatch__name">Emerald</span>
+                  <span class="swatch__value">#34d399</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ─── Components ─── -->
+      <section id="components" class="section">
+        <div class="section__header">
+          <span class="technical">section 02</span>
+          <h2>Components</h2>
+          <p>
+            Reusable UI primitives for Telegram bots, mini-apps, and web
+            portals.
+          </p>
         </div>
 
-        <!-- Terminal -->
-        <div class="component-card">
-          <h3>Terminal Feed</h3>
-          <div class="component-demo">
-            <div class="terminal" style="max-width:100%">
+        <div class="component-showcase">
+          <!-- Buttons -->
+          <div class="component-card">
+            <h3>Buttons</h3>
+            <div class="component-demo">
+              <button class="btn btn--primary">Primary Action</button>
+              <button class="btn btn--secondary">Secondary</button>
+              <button class="btn btn--ghost">Ghost</button>
+            </div>
+            <div class="component-code">
+              <pre><span class="technical">Button primaries use the accent gradient + premium glow</span></pre>
+            </div>
+          </div>
+
+          <!-- Badges -->
+          <div class="component-card">
+            <h3>Status Badges</h3>
+            <div class="component-demo">
+              <span class="badge badge--success">● Online</span>
+              <span class="badge badge--warning">● Degraded</span>
+              <span class="badge badge--error">● Offline</span>
+              <span class="badge badge--info">● AI Active</span>
+            </div>
+          </div>
+
+          <!-- Glass Card -->
+          <div class="component-card">
+            <h3>Glass Card</h3>
+            <div class="component-demo">
+              <div class="demo-card">
+                <div class="demo-card__header">
+                  <span class="technical">connection.status</span>
+                  <span class="badge badge--success">● Live</span>
+                </div>
+                <div class="demo-card__body">
+                  <div class="demo-card__row">
+                    <span class="demo-card__label technical">latency</span>
+                    <span class="demo-card__value mono">42ms</span>
+                  </div>
+                  <div class="demo-card__row">
+                    <span class="demo-card__label technical">node</span>
+                    <span class="demo-card__value mono">sfo3-01</span>
+                  </div>
+                  <div class="demo-card__row">
+                    <span class="demo-card__label technical">status</span>
+                    <span class="demo-card__value">Operational</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Terminal -->
+          <div class="component-card">
+            <h3>Terminal Feed</h3>
+            <div class="component-demo">
+              <div class="terminal" style="max-width: 100%">
+                <div class="terminal__header">
+                  <span class="terminal__dot terminal__dot--red"></span>
+                  <span class="terminal__dot terminal__dot--yellow"></span>
+                  <span class="terminal__dot terminal__dot--green"></span>
+                  <span class="technical">bot.resolver</span>
+                </div>
+                <div class="terminal__body">
+                  <div class="terminal__line">
+                    <span class="terminal__prompt">❯</span> Resolving master
+                    stream...
+                  </div>
+                  <div class="terminal__line">
+                    <span class="terminal__prompt">❯</span> KVS source
+                    identified: <span class="terminal__accent">sfo3-edge</span>
+                  </div>
+                  <div class="terminal__line">
+                    <span class="terminal__prompt">❯</span> Quality:
+                    <span class="terminal__accent">1080p</span> · Size:
+                    <span class="terminal__accent">142MB</span>
+                  </div>
+                  <div class="terminal__line">
+                    <span class="terminal__prompt">❯</span> Uploading to
+                    Telegram... <span class="terminal__accent">done</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ─── Telegram Bot UI ─── -->
+      <section id="telegram" class="section">
+        <div class="section__header">
+          <span class="technical">section 03</span>
+          <h2>Telegram Bot UI</h2>
+          <p>
+            Inline keyboards, bot message cards, and mini-app surfaces —
+            designed for the Telegram canvas.
+          </p>
+        </div>
+
+        <div class="telegram-showcase">
+          <!-- Bot Message Card -->
+          <div class="telegram-message">
+            <div class="telegram-message__avatar">⬡</div>
+            <div class="telegram-message__body">
+              <div class="telegram-message__header">
+                <span class="telegram-message__bot-name">FriskyBot</span>
+                <span class="telegram-message__badge">BOT</span>
+              </div>
+              <div class="telegram-message__content">
+                <div class="bot-card">
+                  <div class="bot-card__header">
+                    <span class="technical">stream.resolved</span>
+                    <span class="badge badge--success">● PRO</span>
+                  </div>
+                  <h4 class="bot-card__title">Master Stream Resolved</h4>
+                  <div class="bot-card__details">
+                    <div class="bot-card__row">
+                      <span class="technical">source</span>
+                      <span class="mono">kvs://sfo3-edge/stream_01</span>
+                    </div>
+                    <div class="bot-card__row">
+                      <span class="technical">quality</span>
+                      <span class="mono">1920×1080 · 14.6s resolve</span>
+                    </div>
+                    <div class="bot-card__row">
+                      <span class="technical">expires</span>
+                      <span class="mono">in 23h 42m</span>
+                    </div>
+                  </div>
+                  <div class="bot-card__actions">
+                    <button class="btn btn--primary btn--sm">▶ Play</button>
+                    <button class="btn btn--ghost btn--sm">Download</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Inline Keyboard -->
+          <div class="telegram-keyboard">
+            <div class="keyboard-label technical">Inline Keyboard Layout</div>
+            <div class="inline-keyboard">
+              <button
+                class="inline-keyboard__btn"
+                style="
+                  background: var(--fds-accent-gradient);
+                  color: #fff;
+                  border: none;
+                "
+              >
+                ▶ Resolve
+              </button>
+              <button class="inline-keyboard__btn">History</button>
+              <button class="inline-keyboard__btn">Account</button>
+              <button class="inline-keyboard__btn">Help</button>
+              <button
+                class="inline-keyboard__btn"
+                style="background: rgba(248, 113, 113, 0.15); color: #f87171"
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ─── Usage / Framework Evaluation ─── -->
+      <section id="usage" class="section">
+        <div class="section__header">
+          <span class="technical">section 04</span>
+          <h2>Framework Evaluation</h2>
+          <p>
+            Built for Cloudflare Workers + Pages. Zero-config deployment via
+            Wrangler.
+          </p>
+        </div>
+
+        <div class="usage-grid">
+          <div class="usage-card">
+            <div class="usage-card__icon">⚡</div>
+            <h3>Cloudflare Workers</h3>
+            <p>
+              Edge-deployed API endpoints for Telegram webhooks, bot logic, and
+              mini-app backends. Sub-ms cold starts, global distribution.
+            </p>
+            <div class="terminal" style="margin-top: var(--fds-space-md)">
               <div class="terminal__header">
-                <span class="terminal__dot terminal__dot--red"></span>
-                <span class="terminal__dot terminal__dot--yellow"></span>
-                <span class="terminal__dot terminal__dot--green"></span>
-                <span class="technical">bot.resolver</span>
+                <span class="technical">deploy.cmd</span>
               </div>
               <div class="terminal__body">
-                <div class="terminal__line"><span class="terminal__prompt">❯</span> Resolving master stream...</div>
-                <div class="terminal__line"><span class="terminal__prompt">❯</span> KVS source identified: <span class="terminal__accent">sfo3-edge</span></div>
-                <div class="terminal__line"><span class="terminal__prompt">❯</span> Quality: <span class="terminal__accent">1080p</span> · Size: <span class="terminal__accent">142MB</span></div>
-                <div class="terminal__line"><span class="terminal__prompt">❯</span> Uploading to Telegram... <span class="terminal__accent">done</span></div>
+                <div class="terminal__line">npx wrangler deploy</div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- ─── Telegram Bot UI ─── -->
-    <section id="telegram" class="section">
-      <div class="section__header">
-        <span class="technical">section 03</span>
-        <h2>Telegram Bot UI</h2>
-        <p>Inline keyboards, bot message cards, and mini-app surfaces — designed for the Telegram canvas.</p>
-      </div>
-
-      <div class="telegram-showcase">
-        <!-- Bot Message Card -->
-        <div class="telegram-message">
-          <div class="telegram-message__avatar">⬡</div>
-          <div class="telegram-message__body">
-            <div class="telegram-message__header">
-              <span class="telegram-message__bot-name">FriskyBot</span>
-              <span class="telegram-message__badge">BOT</span>
-            </div>
-            <div class="telegram-message__content">
-              <div class="bot-card">
-                <div class="bot-card__header">
-                  <span class="technical">stream.resolved</span>
-                  <span class="badge badge--success">● PRO</span>
-                </div>
-                <h4 class="bot-card__title">Master Stream Resolved</h4>
-                <div class="bot-card__details">
-                  <div class="bot-card__row">
-                    <span class="technical">source</span>
-                    <span class="mono">kvs://sfo3-edge/stream_01</span>
-                  </div>
-                  <div class="bot-card__row">
-                    <span class="technical">quality</span>
-                    <span class="mono">1920×1080 · 14.6s resolve</span>
-                  </div>
-                  <div class="bot-card__row">
-                    <span class="technical">expires</span>
-                    <span class="mono">in 23h 42m</span>
-                  </div>
-                </div>
-                <div class="bot-card__actions">
-                  <button class="btn btn--primary btn--sm">▶ Play</button>
-                  <button class="btn btn--ghost btn--sm">Download</button>
+          <div class="usage-card">
+            <div class="usage-card__icon">📄</div>
+            <h3>Cloudflare Pages</h3>
+            <p>
+              Static hosting for design system docs, mini-app SPAs, and landing
+              pages. Git-integrated CI/CD with branch previews.
+            </p>
+            <div class="terminal" style="margin-top: var(--fds-space-md)">
+              <div class="terminal__header">
+                <span class="technical">deploy.cmd</span>
+              </div>
+              <div class="terminal__body">
+                <div class="terminal__line">
+                  npx wrangler pages deploy public
                 </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <!-- Inline Keyboard -->
-        <div class="telegram-keyboard">
-          <div class="keyboard-label technical">Inline Keyboard Layout</div>
-          <div class="inline-keyboard">
-            <button class="inline-keyboard__btn" style="background:var(--fds-accent-gradient);color:#fff;border:none">▶ Resolve</button>
-            <button class="inline-keyboard__btn">History</button>
-            <button class="inline-keyboard__btn">Account</button>
-            <button class="inline-keyboard__btn">Help</button>
-            <button class="inline-keyboard__btn" style="background:rgba(248,113,113,0.15);color:#f87171">Cancel</button>
+          <div class="usage-card">
+            <div class="usage-card__icon">🎨</div>
+            <h3>Design Tokens</h3>
+            <p>
+              CSS custom properties + JSON tokens. Import into any framework —
+              React, Vue, or plain HTML. Single source of truth for the Frisky
+              ecosystem.
+            </p>
+            <div class="terminal" style="margin-top: var(--fds-space-md)">
+              <div class="terminal__header">
+                <span class="technical">import.css</span>
+              </div>
+              <div class="terminal__body">
+                <div class="terminal__line">@import '/css/tokens.css';</div>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- ─── Usage / Framework Evaluation ─── -->
-    <section id="usage" class="section">
-      <div class="section__header">
-        <span class="technical">section 04</span>
-        <h2>Framework Evaluation</h2>
-        <p>Built for Cloudflare Workers + Pages. Zero-config deployment via Wrangler.</p>
-      </div>
-
-      <div class="usage-grid">
-        <div class="usage-card">
-          <div class="usage-card__icon">⚡</div>
-          <h3>Cloudflare Workers</h3>
-          <p>Edge-deployed API endpoints for Telegram webhooks, bot logic, and mini-app backends. Sub-ms cold starts, global distribution.</p>
-          <div class="terminal" style="margin-top:var(--fds-space-md)">
-            <div class="terminal__header"><span class="technical">deploy.cmd</span></div>
-            <div class="terminal__body">
-              <div class="terminal__line">npx wrangler deploy</div>
+          <div class="usage-card">
+            <div class="usage-card__icon">🤖</div>
+            <h3>Telegram Bot API</h3>
+            <p>
+              Design tokens map directly to Telegram's inline keyboard, message,
+              and mini-app specs. MarkdownV2-ready for bot message formatting.
+            </p>
+            <div class="terminal" style="margin-top: var(--fds-space-md)">
+              <div class="terminal__header">
+                <span class="technical">bot.message</span>
+              </div>
+              <div class="terminal__body">
+                <div class="terminal__line">InlineKeyboardMarkup</div>
+                <div class="terminal__line">+ ParseMode.MarkdownV2</div>
+              </div>
             </div>
           </div>
         </div>
+      </section>
 
-        <div class="usage-card">
-          <div class="usage-card__icon">📄</div>
-          <h3>Cloudflare Pages</h3>
-          <p>Static hosting for design system docs, mini-app SPAs, and landing pages. Git-integrated CI/CD with branch previews.</p>
-          <div class="terminal" style="margin-top:var(--fds-space-md)">
-            <div class="terminal__header"><span class="technical">deploy.cmd</span></div>
-            <div class="terminal__body">
-              <div class="terminal__line">npx wrangler pages deploy public</div>
-            </div>
+      <!-- ─── Footer ─── -->
+      <footer class="footer">
+        <div class="footer__inner">
+          <div class="footer__brand">
+            <span class="nav__logo">⬡</span>
+            <span class="footer__title">Frisky Developments</span>
+          </div>
+          <div class="footer__links">
+            <a
+              href="https://github.com/FriskyDevelopments"
+              target="_blank"
+              rel="noopener"
+              class="footer__link"
+              >GitHub</a
+            >
+            <a
+              href="https://t.me/FriskyDevelopments"
+              target="_blank"
+              rel="noopener"
+              class="footer__link"
+              >Telegram</a
+            >
+          </div>
+          <div class="footer__technical technical">
+            Design System v1.0.0 · Deep Tech / Cyber
           </div>
         </div>
-
-        <div class="usage-card">
-          <div class="usage-card__icon">🎨</div>
-          <h3>Design Tokens</h3>
-          <p>CSS custom properties + JSON tokens. Import into any framework — React, Vue, or plain HTML. Single source of truth for the Frisky ecosystem.</p>
-          <div class="terminal" style="margin-top:var(--fds-space-md)">
-            <div class="terminal__header"><span class="technical">import.css</span></div>
-            <div class="terminal__body">
-              <div class="terminal__line">@import '/css/tokens.css';</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="usage-card">
-          <div class="usage-card__icon">🤖</div>
-          <h3>Telegram Bot API</h3>
-          <p>Design tokens map directly to Telegram's inline keyboard, message, and mini-app specs. MarkdownV2-ready for bot message formatting.</p>
-          <div class="terminal" style="margin-top:var(--fds-space-md)">
-            <div class="terminal__header"><span class="technical">bot.message</span></div>
-            <div class="terminal__body">
-              <div class="terminal__line">InlineKeyboardMarkup</div>
-              <div class="terminal__line">  + ParseMode.MarkdownV2</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ─── Footer ─── -->
-    <footer class="footer">
-      <div class="footer__inner">
-        <div class="footer__brand">
-          <span class="nav__logo">⬡</span>
-          <span class="footer__title">Frisky Developments</span>
-        </div>
-        <div class="footer__links">
-          <a href="https://github.com/FriskyDevelopments" target="_blank" rel="noopener" class="footer__link">GitHub</a>
-          <a href="https://t.me/FriskyDevelopments" target="_blank" rel="noopener" class="footer__link">Telegram</a>
-        </div>
-        <div class="footer__technical technical">
-          Design System v1.0.0 · Deep Tech / Cyber
-        </div>
-      </div>
-    </footer>
-  </div>
-  <script>
-    (function () {
-      // ── Nav links ──────────────────────────────────────────────────
-      document.querySelectorAll('.nav__link').forEach(function (el) {
-        el.addEventListener('click', function () {
-          posthog.capture('nav link clicked', {
-            label: el.textContent.trim(),
-            href: el.getAttribute('href')
-          });
-        });
-      });
-
-      // ── Hero CTAs ──────────────────────────────────────────────────
-      var heroActions = document.querySelector('.hero__actions');
-      if (heroActions) {
-        heroActions.querySelectorAll('a').forEach(function (el) {
-          el.addEventListener('click', function () {
-            var isGitHub = el.href && el.href.indexOf('github.com') !== -1;
-            if (isGitHub) {
-              posthog.capture('github link clicked', {
-                location: 'hero',
-                label: el.textContent.trim()
-              });
-            } else {
-              posthog.capture('cta clicked', {
-                label: el.textContent.trim(),
-                href: el.getAttribute('href')
-              });
-            }
-          });
-        });
-      }
-
-      // ── Component demo buttons ─────────────────────────────────────
-      var componentShowcase = document.querySelector('.component-showcase');
-      if (componentShowcase) {
-        componentShowcase.querySelectorAll('button').forEach(function (el) {
-          el.addEventListener('click', function () {
-            var card = el.closest('.component-card');
-            posthog.capture('component demo interacted', {
-              component: card ? card.querySelector('h3') && card.querySelector('h3').textContent.trim() : null,
-              button_label: el.textContent.trim()
+      </footer>
+    </div>
+    <script>
+      (function () {
+        // ── Nav links ──────────────────────────────────────────────────
+        document.querySelectorAll(".nav__link").forEach(function (el) {
+          el.addEventListener("click", function () {
+            posthog.capture("nav link clicked", {
+              label: el.textContent.trim(),
+              href: el.getAttribute("href"),
             });
           });
         });
-      }
 
-      // ── Telegram inline keyboard demo ──────────────────────────────
-      var inlineKeyboard = document.querySelector('.inline-keyboard');
-      if (inlineKeyboard) {
-        inlineKeyboard.querySelectorAll('button').forEach(function (el) {
-          el.addEventListener('click', function () {
-            posthog.capture('telegram keyboard button clicked', {
-              button_label: el.textContent.trim()
+        // ── Hero CTAs ──────────────────────────────────────────────────
+        var heroActions = document.querySelector(".hero__actions");
+        if (heroActions) {
+          heroActions.querySelectorAll("a").forEach(function (el) {
+            el.addEventListener("click", function () {
+              var isGitHub = el.href && el.href.indexOf("github.com") !== -1;
+              if (isGitHub) {
+                posthog.capture("github link clicked", {
+                  location: "hero",
+                  label: el.textContent.trim(),
+                });
+              } else {
+                posthog.capture("cta clicked", {
+                  label: el.textContent.trim(),
+                  href: el.getAttribute("href"),
+                });
+              }
+            });
+          });
+        }
+
+        // ── Component demo buttons ─────────────────────────────────────
+        var componentShowcase = document.querySelector(".component-showcase");
+        if (componentShowcase) {
+          componentShowcase.querySelectorAll("button").forEach(function (el) {
+            el.addEventListener("click", function () {
+              var card = el.closest(".component-card");
+              posthog.capture("component demo interacted", {
+                component: card
+                  ? card.querySelector("h3") &&
+                    card.querySelector("h3").textContent.trim()
+                  : null,
+                button_label: el.textContent.trim(),
+              });
+            });
+          });
+        }
+
+        // ── Telegram inline keyboard demo ──────────────────────────────
+        var inlineKeyboard = document.querySelector(".inline-keyboard");
+        if (inlineKeyboard) {
+          inlineKeyboard.querySelectorAll("button").forEach(function (el) {
+            el.addEventListener("click", function () {
+              posthog.capture("telegram keyboard button clicked", {
+                button_label: el.textContent.trim(),
+              });
+            });
+          });
+        }
+
+        // ── Footer links ───────────────────────────────────────────────
+        var footer = document.querySelector(".footer");
+        if (footer) {
+          footer.querySelectorAll("a").forEach(function (el) {
+            el.addEventListener("click", function () {
+              var isTelegram = el.href && el.href.indexOf("t.me") !== -1;
+              var isGitHub = el.href && el.href.indexOf("github.com") !== -1;
+              if (isTelegram) {
+                posthog.capture("telegram channel link clicked", {
+                  location: "footer",
+                  label: el.textContent.trim(),
+                });
+              } else if (isGitHub) {
+                posthog.capture("github link clicked", {
+                  location: "footer",
+                  label: el.textContent.trim(),
+                });
+              }
+            });
+          });
+        }
+
+        // ── Section viewed (IntersectionObserver) ──────────────────────
+        var sections = document.querySelectorAll("section[id]");
+        if ("IntersectionObserver" in window && sections.length) {
+          var seen = {};
+          var observer = new IntersectionObserver(
+            function (entries) {
+              entries.forEach(function (entry) {
+                var id = entry.target.id;
+                if (entry.isIntersecting && !seen[id]) {
+                  seen[id] = true;
+                  var heading = entry.target.querySelector("h2");
+                  posthog.capture("section viewed", {
+                    section_id: id,
+                    section_title: heading ? heading.textContent.trim() : id,
+                  });
+                }
+              });
+            },
+            { threshold: 0.25 },
+          );
+          sections.forEach(function (s) {
+            observer.observe(s);
+          });
+        }
+
+        // ── Telegram bot card action buttons ──────────────────────────
+        var botCardActions = document.querySelector(".bot-card__actions");
+        if (botCardActions) {
+          botCardActions.querySelectorAll("button").forEach(function (el) {
+            el.addEventListener("click", function () {
+              posthog.capture("telegram bot card action clicked", {
+                button_label: el.textContent.trim(),
+              });
+            });
+          });
+        }
+
+        // ── Token color copy ───────────────────────────────────────────
+        document.querySelectorAll(".swatch__value").forEach(function (el) {
+          el.style.cursor = "pointer";
+          el.title = "Click to copy";
+          el.addEventListener("click", function () {
+            var value = el.textContent.trim();
+            var name =
+              el.closest(".swatch__info") &&
+              el.closest(".swatch__info").querySelector(".swatch__name");
+            if (navigator.clipboard) {
+              navigator.clipboard.writeText(value).catch(function () {});
+            }
+            posthog.capture("token color copied", {
+              token_value: value,
+              token_name: name ? name.textContent.trim() : null,
             });
           });
         });
-      }
 
-      // ── Footer links ───────────────────────────────────────────────
-      var footer = document.querySelector('.footer');
-      if (footer) {
-        footer.querySelectorAll('a').forEach(function (el) {
-          el.addEventListener('click', function () {
-            var isTelegram = el.href && el.href.indexOf('t.me') !== -1;
-            var isGitHub = el.href && el.href.indexOf('github.com') !== -1;
-            if (isTelegram) {
-              posthog.capture('telegram channel link clicked', {
-                location: 'footer',
-                label: el.textContent.trim()
+        // ── Deploy command copy ────────────────────────────────────────
+        document
+          .querySelectorAll(".usage-card .terminal__line")
+          .forEach(function (el) {
+            el.style.cursor = "pointer";
+            el.title = "Click to copy";
+            el.addEventListener("click", function () {
+              var command = el.textContent.trim();
+              if (navigator.clipboard) {
+                navigator.clipboard.writeText(command).catch(function () {});
+              }
+              var card = el.closest(".usage-card");
+              var cardTitle = card && card.querySelector("h3");
+              posthog.capture("deploy command copied", {
+                command: command,
+                context: cardTitle ? cardTitle.textContent.trim() : null,
               });
-            } else if (isGitHub) {
-              posthog.capture('github link clicked', {
-                location: 'footer',
-                label: el.textContent.trim()
-              });
-            }
+            });
           });
-        });
-      }
-
-      // ── Section viewed (IntersectionObserver) ──────────────────────
-      var sections = document.querySelectorAll('section[id]');
-      if ('IntersectionObserver' in window && sections.length) {
-        var seen = {};
-        var observer = new IntersectionObserver(function (entries) {
-          entries.forEach(function (entry) {
-            var id = entry.target.id;
-            if (entry.isIntersecting && !seen[id]) {
-              seen[id] = true;
-              var heading = entry.target.querySelector('h2');
-              posthog.capture('section viewed', {
-                section_id: id,
-                section_title: heading ? heading.textContent.trim() : id
-              });
-            }
-          });
-        }, { threshold: 0.25 });
-        sections.forEach(function (s) { observer.observe(s); });
-      }
-    })();
-  </script>
-</body>
+      })();
+    </script>
+  </body>
 </html>
