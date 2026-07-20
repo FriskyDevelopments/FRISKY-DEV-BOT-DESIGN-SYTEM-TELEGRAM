@@ -1,0 +1,13 @@
+name = "frisky-dev-bot-design-system"
+compatibility_date = "2025-04-01"
+
+pages_build_output_dir = "public"
+
+[[routes]]
+pattern = "friskydev.com/bot-design-system/*"
+zone_id = ""
+
+[env.production]
+routes = [
+  { pattern = "friskydev.com/bot-design-system", custom_domain = true }
+]

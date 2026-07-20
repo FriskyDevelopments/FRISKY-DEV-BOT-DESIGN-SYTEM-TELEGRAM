@@ -1,0 +1,316 @@
+/* ============================================================
+   Frisky Design System — Canonical Tokens (Telegram Bot UI)
+   Deep Tech / Cyber — v1.0.0
+   ============================================================ */
+
+:root {
+  /* ─── Backgrounds ─── */
+  --fds-bg: #050505;
+  --fds-bg-glass: rgba(255, 255, 255, 0.05);
+  --fds-bg-glass-dark: rgba(0, 0, 0, 0.4);
+  --fds-bg-elevated: rgba(255, 255, 255, 0.08);
+  --fds-bg-card: rgba(255, 255, 255, 0.03);
+
+  /* ─── Text ─── */
+  --fds-text-primary: #ffffff;
+  --fds-text-body: #cbd5e1;
+  --fds-text-muted: #94a3b8;
+  --fds-text-technical: #34d399;
+
+  /* ─── Accent ─── */
+  --fds-accent-gradient-start: #c084fc;
+  --fds-accent-gradient-end: #34d399;
+  --fds-accent-gradient: linear-gradient(135deg, #c084fc, #34d399);
+  --fds-accent-purple: #c084fc;
+  --fds-accent-emerald: #34d399;
+  --fds-accent-blue: #60a5fa;
+  --fds-accent-amber: #fbbf24;
+  --fds-accent-red: #f87171;
+
+  /* ─── Borders ─── */
+  --fds-border: rgba(255, 255, 255, 0.1);
+  --fds-border-light: rgba(255, 255, 255, 0.06);
+  --fds-border-hover: rgba(255, 255, 255, 0.2);
+
+  /* ─── Glow ─── */
+  --fds-glow-premium: 0 0 30px rgba(192, 132, 252, 0.15);
+  --fds-glow-subtle: 0 0 15px rgba(192, 132, 252, 0.08);
+
+  /* ─── Typography ─── */
+  --fds-font-sans: 'Inter', 'Geist', 'Space Grotesk', system-ui, -apple-system, sans-serif;
+  --fds-font-mono: 'JetBrains Mono', 'Fira Code', 'SF Mono', monospace;
+
+  --fds-h1-size: 2.25rem;
+  --fds-h1-weight: 700;
+  --fds-h1-tracking: -0.02em;
+
+  --fds-h2-size: 1.5rem;
+  --fds-h2-weight: 600;
+  --fds-h2-tracking: -0.01em;
+
+  --fds-body-size: 0.875rem;
+  --fds-body-weight: 400;
+
+  --fds-technical-size: 0.75rem;
+  --fds-technical-weight: 500;
+  --fds-technical-tracking: 0.15em;
+
+  --fds-mono-size: 0.8125rem;
+
+  /* ─── Spacing ─── */
+  --fds-space-unit: 4px;
+  --fds-space-xs: 4px;
+  --fds-space-sm: 8px;
+  --fds-space-md: 16px;
+  --fds-space-lg: 24px;
+  --fds-space-xl: 32px;
+  --fds-space-xxl: 40px;
+
+  /* ─── Radius ─── */
+  --fds-radius-sm: 6px;
+  --fds-radius-md: 8px;
+  --fds-radius-lg: 12px;
+  --fds-radius-xl: 16px;
+
+  /* ─── Glassmorphism ─── */
+  --fds-glass-bg: rgba(255, 255, 255, 0.05);
+  --fds-glass-blur: 24px;
+  --fds-glass-border: 1px solid rgba(255, 255, 255, 0.1);
+
+  /* ─── Animation ─── */
+  --fds-duration-fast: 150ms;
+  --fds-duration-normal: 300ms;
+  --fds-duration-slow: 500ms;
+  --fds-easing: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ─── Telegram Mini-App Safe Area ─── */
+@supports (padding: env(safe-area-inset-top)) {
+  :root {
+    --fds-safe-top: env(safe-area-inset-top);
+    --fds-safe-right: env(safe-area-inset-right);
+    --fds-safe-bottom: env(safe-area-inset-bottom);
+    --fds-safe-left: env(safe-area-inset-left);
+  }
+}
+
+/* ─── Utility Classes ─── */
+.fds-glass {
+  background: var(--fds-glass-bg);
+  backdrop-filter: blur(var(--fds-glass-blur));
+  -webkit-backdrop-filter: blur(var(--fds-glass-blur));
+  border: var(--fds-glass-border);
+}
+
+.fds-glass-card {
+  background: var(--fds-bg-card);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--fds-border);
+  border-radius: var(--fds-radius-lg);
+  box-shadow: var(--fds-glow-subtle);
+}
+
+.fds-gradient-text {
+  background: var(--fds-accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.fds-gradient-bg {
+  background: var(--fds-accent-gradient);
+}
+
+.fds-technical {
+  font-family: var(--fds-font-mono);
+  font-size: var(--fds-technical-size);
+  font-weight: var(--fds-technical-weight);
+  letter-spacing: var(--fds-technical-tracking);
+  text-transform: uppercase;
+  color: var(--fds-text-technical);
+}
+
+.fds-mono {
+  font-family: var(--fds-font-mono);
+  font-size: var(--fds-mono-size);
+}
+
+/* ─── Status Badges ─── */
+.fds-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  font-size: var(--fds-technical-size);
+  font-weight: var(--fds-technical-weight);
+  letter-spacing: var(--fds-technical-tracking);
+  text-transform: uppercase;
+  font-family: var(--fds-font-mono);
+}
+
+.fds-badge--success {
+  background: rgba(52, 211, 153, 0.15);
+  color: var(--fds-accent-emerald);
+}
+
+.fds-badge--warning {
+  background: rgba(251, 191, 36, 0.15);
+  color: var(--fds-accent-amber);
+}
+
+.fds-badge--error {
+  background: rgba(248, 113, 113, 0.15);
+  color: var(--fds-accent-red);
+}
+
+.fds-badge--info {
+  background: rgba(192, 132, 252, 0.15);
+  color: var(--fds-accent-purple);
+}
+
+/* ─── Buttons ─── */
+.fds-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: var(--fds-radius-md);
+  font-family: var(--fds-font-sans);
+  font-size: var(--fds-body-size);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--fds-duration-normal) var(--fds-easing);
+  border: none;
+  text-decoration: none;
+}
+
+.fds-btn--primary {
+  background: var(--fds-accent-gradient);
+  color: #ffffff;
+  box-shadow: var(--fds-glow-premium);
+}
+
+.fds-btn--primary:hover {
+  box-shadow: 0 0 40px rgba(192, 132, 252, 0.25);
+  transform: translateY(-1px);
+}
+
+.fds-btn--secondary {
+  background: transparent;
+  border: 1px solid var(--fds-border);
+  color: var(--fds-text-body);
+}
+
+.fds-btn--secondary:hover {
+  border-color: var(--fds-border-hover);
+  background: var(--fds-bg-glass);
+}
+
+/* ─── Telegram Inline Keyboard ─── */
+.fds-inline-keyboard {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 8px;
+}
+
+.fds-inline-keyboard button {
+  flex: 1;
+  min-width: 80px;
+  height: 40px;
+  padding: 8px 16px;
+  border-radius: var(--fds-radius-md);
+  background: var(--fds-bg-glass);
+  border: 1px solid var(--fds-border);
+  color: var(--fds-text-body);
+  font-family: var(--fds-font-sans);
+  font-size: var(--fds-body-size);
+  cursor: pointer;
+  transition: all var(--fds-duration-fast) var(--fds-easing);
+}
+
+.fds-inline-keyboard button:hover {
+  background: var(--fds-bg-elevated);
+  border-color: var(--fds-border-hover);
+}
+
+.fds-inline-keyboard button:active {
+  transform: scale(0.97);
+}
+
+/* ─── Bot Message Bubble ─── */
+.fds-bot-message {
+  max-width: 400px;
+  padding: var(--fds-space-md);
+  border-radius: var(--fds-radius-lg);
+  background: var(--fds-bg-card);
+  border: 1px solid var(--fds-border);
+  box-shadow: var(--fds-glow-subtle);
+}
+
+/* ─── Terminal Frame ─── */
+.fds-terminal {
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(52, 211, 153, 0.2);
+  border-radius: var(--fds-radius-md);
+  padding: var(--fds-space-md);
+  font-family: var(--fds-font-mono);
+  font-size: var(--fds-mono-size);
+  color: var(--fds-text-technical);
+  overflow-x: auto;
+}
+
+.fds-terminal__header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: var(--fds-space-sm);
+  padding-bottom: var(--fds-space-sm);
+  border-bottom: 1px solid rgba(52, 211, 153, 0.1);
+  font-size: var(--fds-technical-size);
+  letter-spacing: var(--fds-technical-tracking);
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+.fds-terminal__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.fds-terminal__dot--red { background: #f87171; }
+.fds-terminal__dot--yellow { background: #fbbf24; }
+.fds-terminal__dot--green { background: #34d399; }
+
+/* ─── Loading / Skeleton ─── */
+@keyframes fds-shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.fds-skeleton {
+  background: linear-gradient(90deg, var(--fds-bg-glass) 25%, var(--fds-bg-elevated) 50%, var(--fds-bg-glass) 75%);
+  background-size: 200% 100%;
+  animation: fds-shimmer 1.5s ease-in-out infinite;
+  border-radius: var(--fds-radius-sm);
+}
+
+/* ─── Scrollbar ─── */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}

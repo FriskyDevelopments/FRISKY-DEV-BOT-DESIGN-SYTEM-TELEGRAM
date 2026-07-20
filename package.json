@@ -1,0 +1,21 @@
+{
+  "name": "frisky-dev-bot-design-system-telegram",
+  "version": "1.0.0",
+  "description": "Frisky Design System — Telegram Bot UI Design Tokens, Components, and Deployment Config",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "wrangler pages dev public --live",
+    "build": "echo 'Static site — no build step required'",
+    "deploy": "wrangler pages deploy public --branch main",
+    "format": "prettier --write '**/*.{html,css,js,json,md}'"
+  },
+  "keywords": [
+    "frisky",
+    "design-system",
+    "telegram-bot",
+    "cloudflare-pages",
+    "ui-tokens"
+  ],
+  "author": "Frisky Developments",
+  "license": "MIT"
+}
