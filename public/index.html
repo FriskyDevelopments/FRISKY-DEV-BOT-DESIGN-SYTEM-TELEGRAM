@@ -472,6 +472,34 @@
         });
       }
 
+      // ── Token value copy ──────────────────────────────────────────
+      document.querySelectorAll('.swatch__value').forEach(function (el) {
+        el.style.cursor = 'copy';
+        el.addEventListener('click', function () {
+          var value = el.textContent.trim();
+          if (navigator.clipboard) {
+            navigator.clipboard.writeText(value).catch(function () {});
+          }
+          var nameEl = el.closest('.swatch__info') && el.closest('.swatch__info').querySelector('.swatch__name');
+          posthog.capture('token value copied', {
+            token_value: value,
+            token_name: nameEl ? nameEl.textContent.trim() : null
+          });
+        });
+      });
+
+      // ── Bot card actions ───────────────────────────────────────────
+      var botCardActions = document.querySelector('.bot-card__actions');
+      if (botCardActions) {
+        botCardActions.querySelectorAll('button').forEach(function (el) {
+          el.addEventListener('click', function () {
+            posthog.capture('bot card action clicked', {
+              action_label: el.textContent.trim()
+            });
+          });
+        });
+      }
+
       // ── Section viewed (IntersectionObserver) ──────────────────────
       var sections = document.querySelectorAll('section[id]');
       if ('IntersectionObserver' in window && sections.length) {
