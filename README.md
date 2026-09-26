@@ -1,5 +1,7 @@
 # ⬡ Frisky Design System — Telegram Bot UI
 
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white) ![Cloudflare Pages](https://img.shields.io/badge/Cloudflare-Pages-F38020?logo=cloudflare&logoColor=white)
+
 **Deep Tech / Cyber** — Canonical UI tokens, components, and brand guidelines for the Frisky Developments ecosystem.
 
 > Canonical design language powering ClipsFlow, HostCasa, MyFenrir, Frisky Mega Factory, and all Frisky Telegram bots.
@@ -21,6 +23,17 @@ The Frisky Design System defines the visual language for all Frisky Developments
 | **FriskyClaw / OpenClaw** | Bot framework | Telegram |
 
 ---
+
+## Architecture
+
+```mermaid
+flowchart LR
+  tokens[tokens.json<br/>machine-readable spec] -.->|mirrored in| css[public/css/tokens.css<br/>CSS custom properties]
+  css --> page[public/index.html<br/>showcase page]
+  styles[public/css/styles.css] --> page
+  page -->|npm run deploy<br/>wrangler pages deploy public| pages[Cloudflare Pages<br/>frisky-dev-bot-design-system]
+  pages --> consumers([Bots · mini-apps · portals<br/>import tokens.css])
+```
 
 ## Design Tokens
 
@@ -127,7 +140,7 @@ Monospace terminal emulation widget with:
 | Telegram webhook | ✅ Native Workers | ✅ Serverless fns | ❌ Static only |
 | Git CI/CD | ✅ Auto-deploy | ✅ Auto-deploy | ✅ GitHub Actions |
 
-**Decision**: Cloudflare Pages for static design system site + Workers for Telegram webhook endpoints. Wrangler CLI is pre-installed at `/opt/homebrew/bin/wrangler` v4.106.0.
+**Decision**: Cloudflare Pages for static design system site + Workers for Telegram webhook endpoints.
 
 ---
 
@@ -216,7 +229,7 @@ The design system maps directly to Telegram's bot API surfaces:
 
 ## License
 
-MIT — Frisky Developments
+MIT — Frisky Developments (declared here; no `LICENSE` file is committed yet).
 
 ---
 
